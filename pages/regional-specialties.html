@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regional Specialties</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CONFIG -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#9A0021',
+            secondary: '#feb700',
+            white_80: '#fafaf5',
+            white_80_op_20: '#fafaf5b2',
+            white_80_op_80: '#fafaf5e5',
+            white_70: '#e8e8e4',
+            main_content: '#1a1c19',
+            brown_80: '#5c403f',
+            brown_70: '#6b4b00',
+            brown_50: '#7c5800',
+            pink_50: '#e4bdbc',
+            woodland: '#474f1c',
+          },
+          fontFamily: {
+            primary: ["Be Vietnam Pro", 'sans-serif'],
+            secondary: ["Inter", 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- CUSTOM -->
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply flex flex-col items-center bg-white_80 font-primary;
+      }
+    }
+
+    @layer components {
+      .nav-item {
+        @apply leading-6 tracking-tight text-main_content opacity-80;
+      }
+
+      .nav-item:hover {
+        @apply text-primary opacity-100;
+      }
+
+      .btn-filter {
+        @apply px-5 py-2 text-sm font-semibold rounded-sm font-secondary text-brown_70;
+      }
+
+      .box-contain-check {
+        @apply flex items-center justify-center w-5 h-5 border-[1px] border-pink_50 rounded bg-white peer-checked:bg-primary peer-checked:border-primary;
+      }
+
+      .lb-product-card {
+        @apply rounded-sm py-[.1563rem] px-3 bg-primary absolute top-3 left-4 uppercase font-secondary font-bold text-[.625rem]/[.9375rem] text-white tracking-[.0625rem] shadow-[0px_4px_6px_-4px_#0000001A,0px_10px_15px_-3px_#0000001A]
+      }
+
+      .pagination-container {
+        @apply flex justify-center items-center gap-4 pt-12;
+      }
+
+      .footer-link {
+        @apply flex flex-col gap-2 text-sm font-normal text-woodland opacity-70;
+      }
+
+      .btn-follow {
+        @apply flex items-center justify-center w-10 h-10 rounded-full bg-white_70;
+      }
+    }
+
+    @layer utilities {
+      .btn-hero-section {
+        @apply rounded-2xl py-3 px-8 font-secondary font-semibold text-base capitalize;
+      }
+
+      .btn-pagination {
+        @apply flex items-center 
+          justify-center w-10 h-10 
+          rounded-full border-[1px]
+          border-pink_50 font-secondary 
+          font-medium text-base
+          text-main_content;
+      }
+
+      .btn-pagination-hover {
+        @apply border-primary bg-primary text-white;
+      }
+
+      .btn-map-filter {
+        @apply rounded-full py-2 px-4 border-[.0625rem] border-solid font-secondary font-bold text-xs uppercase;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+  <header class="fixed top-0 z-50 bg-[#fafaf5]">
+    <div class="flex items-center justify-between max-w-screen-xl px-6 py-4 m-auto">
+      <a href="#" class="text-2xl font-bold tracking-tight text-primary">Hương Vị Việt</a>
+
+      <nav>
+        <ul class="flex gap-8 ">
+          <li>
+            <a href="" class="nav-item">Khám Phá</a>
+          </li>
+          <li>
+            <a href="" class="nav-item">Vùng Miền</a>
+          </li>
+          <li>
+            <a href="" class="nav-item">Chợ Việt</a>
+          </li>
+          <li>
+            <a href="" class="nav-item">Văn Hóa</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="flex gap-6">
+        <a href="/cart" class="flex items-center">
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </a>
+        <a href="/user" class="flex items-center">
+          <span class="material-symbols-outlined">
+            person
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col gap-8 px-6 pt-24 pb-20 bg-[#fafaf5]">
+    <!-- nav - breadcrumbs -->
+    <nav>
+      <ol class="nav-inner">
+        <li>
+          <a href="/homepage.html">Home</a>
+        </li>
+
+        <li>
+          <a href="/regional-specialties.html">vùng miền</a>
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Hero Section with Asymmetric Layout -->
+    <section class="grid items-center grid-cols-12 grid-rows-1 gap-12">
+      <div class="flex flex-col col-span-5 gap-6">
+        <h1 class="font-extrabold text-7xl/[4.5rem] text-primary capitalize">
+          hàng trình ẩm thực <span class="leading-none text-brown_50">việt</span>
+        </h1>
+
+        <p class="font-secondary text-lg/[1.8281rem] text-brown_80">
+          Khám phá sự tinh tế và đa dạng trong từng vùng
+          miền. Từ vị đậm đà miền Bắc đến sự nồng nàn của
+          miền Trung và ngọt lành phương Nam.
+        </p>
+
+        <div class="flex gap-4 pt-2 [&>button]:btn-hero-section">
+          <button class="bg-primary 
+          shadow-[0px_4px_32px_0px_#33000a0f] text-white">
+            khám phá ngay
+          </button>
+
+          <button class="bg-white_70 text-primary">
+            tìm theo tên
+          </button>
+        </div>
+      </div>
+
+      <!-- map -->
+      <div class="col-span-7">
+        <!-- mask group -->
+        <div></div>
+
+        <!-- background & border -->
+        <div class="relative overflow-hidden rounded-[1.25rem] 
+        bg-[#f4f4ef] border-[1px] border-solid border-[#e4bdbc1a] 
+        w-[43.5rem] h-[15.6875rem]">
+          <img src="../assets/imgs/regional-specialties/vietnam-map.png" alt="Vietnam Map"
+            class="object-cover w-full h-full opacity-10">
+
+          <div class="absolute top-0 left-0 flex flex-col items-center w-full h-full p-8">
+            <div class="flex flex-col gap-2 items-center max-w-80 p-6 rounded-[1.25rem]
+            backdrop-blur-md bg-[#ffffff66] border-[.0625rem] border-solid border-[#ffffff80] 
+            shadow-[0px_4px_32px_0px_#33000a0f]">
+              <span class="material-symbols-outlined text-[28px] text-primary">
+                map
+              </span>
+              <h3 class="text-xl font-bold capitalize px-7 text-main_content">bản đồ vùng miền</h3>
+              <p class="font-secondary text-xs tracking-[.075rem] uppercase text-brown_80">di chuột để khám phá đặc sản
+              </p>
+            </div>
+
+            <div class="flex gap-4 pt-4 [&>button]:btn-map-filter">
+              <button class="border-[#9a002133] bg-[#9a00211a] text-primary">miền bắc</button>
+              <button class="border-[#7c580033] bg-[#7c58001a] text-brown_50">miền trung</button>
+              <button class="border-[#474f1c33] bg-[#474f1c1a] text-woodland">miền nam</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section - Filters & Results Layout -->
+    <section class="flex gap-12 pt-12">
+      <!-- Aside - Sidebar Filters -->
+      <div class="flex flex-col gap-10">
+        <!-- filter -->
+        <div class="flex flex-col gap-6">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-primary"></span>
+            <h4 class="text-lg font-bold capitalize text-main_content">bộ lọc</h4>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <label for="all-regions">Tất cả các vùng</label>
+            <label for="north">Miền Bắc</label>
+            <label for="central">Miền Trung</label>
+            <label for="south">Miền Nam</label>
+          </div>
+        </div>
+
+        <!-- regional -->
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-brown_50"></span>
+            <h4 class="text-lg font-bold capitalize text-main_content">tỉnh thành</h4>
+          </div>
+          <input type="search" name="" id="">
+          <div>
+            <button>hà nội</button>
+            <button>huế</button>
+            <button>TP.HCM</button>
+            <button>đà lạt</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- dish grid -->
+      <div>
+        <!--  -->
+        <div>
+          <div>
+            <h2>đặc sản vùng miền</h2>
+            <p>(24 kết quả)</p>
+          </div>
+
+          <div>
+            <p>Sắp xếp:</p>
+            <select>
+              <option value="popularity">Phổ biến nhất</option>
+              <option value="newest">Mới nhất</option>
+              <option value="price_low_high">Giá: Thấp đến Cao</option>
+              <option value="price_high_low">Giá: Cao đến Thấp</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- dish card -->
+        <div>
+          <!-- 1 card -->
+          <div>
+            <div>
+              <img src="../assets/imgs/regional-specialties/bun-bo-hue.png" alt="bun-bo-hue">
+              <span>miền trung</span>
+            </div>
+
+            <div>
+              <div>
+                <h3>bún bò huế</h3>
+                <span>
+                  <span class="material-symbols-outlined">
+                    star_rate
+                  </span>
+                  4.9
+                </span>
+              </div>
+
+              <div>
+                <span class="material-symbols-outlined">
+                  location_on
+                </span>
+                thừa thiên huế
+              </div>
+
+              <button>xem chi tiết</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- pagination -->
+        <div class="pagination-container [&>button]:btn-pagination hover:[&>button]:btn-pagination-hover">
+          <button>
+            <span class="material-symbols-outlined">
+              keyboard_arrow_left
+            </span>
+          </button>
+          <button>1</button>
+          <button>2</button>
+          <button>3</button>
+          <button>
+            <span class="material-symbols-outlined">
+              keyboard_arrow_right
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class=" border-t border-t-white_70 bg-[#f4f4ef]">
+    <div class="grid max-w-screen-xl grid-cols-4 gap-8 px-8 py-12 m-auto">
+      <div class="flex flex-col gap-4 font-secondary">
+        <a href="" class="text-xl font-semibold text-primary">Hương Vị Việt</a>
+        <p class="text-sm font-normal text-woodland">© 2024 Hương Vị Việt. Gìn giữ tinh hoa ẩm thực Việt.</p>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">khám phá</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Món Ngon Miền Bắc</a>
+          </li>
+          <li>
+            <a href="">Đặc Sản Miền Trung</a>
+          </li>
+          <li>
+            <a href="">Ẩm Thực Miền Nam</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">hỗ trợ</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Về Chúng Tôi</a>
+          </li>
+          <li>
+            <a href="">Chính Sách Bảo Mật</a>
+          </li>
+          <li>
+            <a href="">Điều Khoản Sử Dụng</a>
+          </li>
+          <li>
+            <a href="">Liên Hệ</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">theo dõi</h4>
+        <div class="flex gap-4">
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              social_leaderboard
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              play_circle
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              mail
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

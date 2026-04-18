@@ -1,0 +1,6 @@
+{
+  "plugins": ["unicorn"],
+  "rules": {
+    "unicorn/number-literal-case": "error"
+  }
+}

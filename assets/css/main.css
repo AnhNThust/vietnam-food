@@ -1,0 +1,78 @@
+:root {
+  --primary-color: #9A0021;
+
+  --secondary-ff: "Inter", sans-serif;
+
+  --medium-fw: 500;
+
+  --main-content-color: #1A1C19;
+  /* brown-1: #7C5800;
+  brown-1: #5c403f;
+  brown-1: #6B4B00; */
+}
+
+html {
+  background-color: #f5f5f5;
+}
+
+body>* {
+  width: 100%;
+}
+
+.nav-item {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -0.5rem;
+    width: 0;
+    border: 2px solid transparent;
+    border-radius: .25rem;
+    transition: all ease-in-out 0.3s;
+  }
+
+  &:hover::after {
+    width: 100%;
+    border-color: var(--primary-color);
+  }
+}
+
+/* blog page */
+main {
+  background-color: #fff;
+  max-width: 80rem;
+}
+
+/* regional specialties page */
+.nav-inner {
+  display: flex;
+  align-items: center;
+  font-family: var(--secondary-ff);
+  text-transform: capitalize;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  letter-spacing: .0219rem;
+
+  >li {
+    display: flex;
+  }
+
+  >:not(:last-child) {
+    color: #5C403FB2;
+  }
+
+  >:not(:last-child)::after {
+    content: ">";
+    padding-left: .5rem;
+    font-size: .875rem;
+  }
+
+  >:last-child {
+    padding-left: .5rem;
+    font-weight: var(--medium-fw);
+    color: var(--main-content-color);
+  }
+}

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CONFIG -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#9A0021',
+            secondary: '#feb700',
+            white_80: '#fafaf5',
+            white_80_op_20: '#fafaf5b2',
+            white_80_op_80: '#fafaf5e5',
+            white_70: '#e8e8e4',
+            main_content: '#1a1c19',
+            brown_80: '#5c403f',
+            brown_70: '#6B4B00',
+            brown_50: '#7C5800',
+            pink_50: '#e4bdbc',
+            woodland: '#474f1c',
+          },
+          fontFamily: {
+            primary: ["Be Vietnam Pro", 'sans-serif'],
+            secondary: ["Inter", 'sans-serif'],
+          },
+          lineHeight: {
+            'title': '4.5rem'
+          },
+          maxWidth: {
+            searchform: '576px'
+          },
+          minWidth: {
+            '87.5': '21.875rem',
+          },
+          boxShadow: {
+            'hero_card': [
+              '0px 8px 10px -6px #0000001a',
+              '0px 20px 25px -5px #0000001a'
+            ]
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- CUSTOM -->
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply flex flex-col items-center bg-white_80 font-primary;
+      }
+    }
+
+    @layer components {
+      .nav-item {
+        @apply leading-6 tracking-tight text-main_content opacity-80;
+      }
+
+      .nav-item:hover {
+        @apply text-primary opacity-100;
+      }
+
+      .btn-filter {
+        @apply px-5 py-2 text-sm font-semibold rounded-sm font-secondary text-brown_70;
+      }
+
+      .footer-link {
+        @apply flex flex-col gap-2 text-sm font-normal text-woodland opacity-70;
+      }
+
+      .btn-follow {
+        @apply flex items-center justify-center w-10 h-10 rounded-full bg-white_70;
+      }
+
+      .email-input {
+        @apply border-[.0625rem] border-b-2 border-[#ffffff4d] px-[.875rem] py-4 text-[#e594a2] flex-grow font-secondary font-normal text-base/none bg-[#ca2a45] outline-none placeholder:font-secondary placeholder:text-[#ffffff80];
+      }
+
+      .btn-submit {
+        @apply rounded-sm py-[.8438rem] px-8 bg-secondary font-secondary font-bold text-base tracking-widest uppercase text-brown_70;
+      }
+    }
+
+    @layer utilities {
+      
+    }
+  </style>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+  <header class="fixed top-0 z-50 bg-white">
+    <div class="flex items-center justify-between max-w-screen-xl px-6 py-4 m-auto">
+      <a href="#" class="text-2xl font-bold tracking-tight text-primary">Hương Vị Việt</a>
+
+      <nav>
+        <ul class="flex gap-8 ">
+          <li>
+            <a href="" class="nav-item">Khám Phá</a>
+          </li>
+          <li>
+            <a href="" class="nav-item">Vùng Miền</a>
+          </li>
+          <li>
+            <a href="" class="nav-item">Chợ Việt</a>
+          </li>
+          <li>
+            <a href="" class="nav-item">Văn Hóa</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="flex gap-6">
+        <a href="/cart" class="flex items-center">
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </a>
+        <a href="/user" class="flex items-center">
+          <span class="material-symbols-outlined">
+            person
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col gap-12 px-6 pt-24 pb-12">
+    <!-- featured article -->
+    <section class="flex rounded-3xl relative bg-[#f4f4ef]">
+      <div class="relative overflow-hidden rounded-3xl">
+        <img src="../assets/imgs/pho-bo-truyen-thong.png" alt="pho-bo-truyen-thong">
+        <div class="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.4)_0%,rgba(0,0,0,0)_100%)]"></div>
+      </div>
+
+      <div
+        class="absolute flex flex-col gap-6 p-12 bg-white rounded-2xl max-w-[35.875rem] right-0 top-1/2 -translate-y-1/2 shadow-hero_card">
+        <span class="px-3 py-1 rounded-sm bg-secondary w-max">tiêu điểm</span>
+        <h1 class="font-extrabold text-5xl/[3rem] text-main_content">
+          Hành Trình Tìm Lại Hương Vị Phở Xưa Giữa Lòng Hà Nội
+        </h1>
+        <p class="text-base font-normal font-secondary text-brown_80">
+          Nghệ thuật nấu nước dùng phở không chỉ là công thức, mà là sự kiên nhẫn của thời gian và cái tâm của người
+          nấu. Khám phá những quán phở gia truyền giữ gìn linh hồn ẩm thực kinh kỳ…
+        </p>
+        <div class="flex justify-between pt-2 font-secondary">
+          <div class="flex flex-grow">
+            <div class="w-10 h-10 overflow-hidden rounded-full">
+              <img src="../assets/imgs/tac-gia.png" alt="minh-phan">
+            </div>
+            <div class="pl-3">
+              <p class="text-sm font-semibold text-main_content">Minh Phan</p>
+              <span class="text-xs font-normal text-brown_80">12 tháng 10, 2024</span>
+            </div>
+          </div>
+
+          <a href=""
+            class="flex items-center self-end gap-2 pb-1 border-b-2 border-b-[#9a002133] font-bold text-base text-primary">
+            Đọc tiếp <span class="material-symbols-outlined">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- categories & filter -->
+    <section class="flex justify-between pb-6 border-b-[.0625rem] border-b-[#e4bdbc4d]">
+      <div class="flex flex-col gap-2">
+        <h2 class="text-3xl font-bold text-primary">Văn Hóa Ẩm Thực</h2>
+        <p class="text-base italic font-normal font-secondary text-brown_80">Nơi câu chuyện bắt đầu từ những gian bếp
+          Việt</p>
+      </div>
+
+      <div class="flex self-end gap-2">
+        <button class="btn-filter bg-secondary">
+          Tất cả
+        </button>
+
+        <button class="btn-filter bg-white_70">
+          Món Ngon
+        </button>
+
+        <button class="btn-filter bg-white_70">
+          Văn Hóa
+        </button>
+
+        <button class="btn-filter bg-white_70">
+          Công Thức
+        </button>
+
+        <button class="btn-filter bg-white_70">
+          Ký Sự
+        </button>
+      </div>
+    </section>
+
+    <!-- article bento grid -->
+    <section class="grid grid-cols-12 grid-rows-2 gap-8">
+      <article class="flex flex-col col-span-8 gap-6 pb-1">
+        <div class="relative overflow-hidden">
+          <img src="../assets/imgs/am-thuc-duong-pho.png" alt="am-thuc-duong-pho">
+          <span
+            class="absolute px-3 py-1 rounded-sm top-3 left-4 bg-primary font-secondary font-bold text-[.625rem]/[.9375rem] -tracking-[0.031em] uppercase text-white">ký
+            sự</span>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h3 class="text-2xl font-bold text-main_content">Văn hóa ngồi 'vỉa hè' - Khi ẩm thực không chỉ là ăn uống</h3>
+          <p class="text-base font-normal font-secondary text-brown_80">
+            Vỉa hè không chỉ là nơi xe cộ qua lại, mà là "linh hồn" của nhịp sống đô thị Việt. Những chiếc ghế nhựa,
+            chén trà đá và tiếng cười nói tạo nên một không gian kết nối cộng đồng độc đáo...
+          </p>
+          <a href="" class="flex items-center gap-2 pt-3 text-sm font-bold uppercase font-secondary text-primary w-fit">
+            đọc tiếp <span class="material-symbols-outlined">keyboard_arrow_right</span>
+          </a>
+        </div>
+      </article>
+
+      <div class="flex flex-col col-span-4 gap-8">
+        <article class="flex flex-col gap-4">
+          <div class="overflow-hidden rounded-2xl">
+            <img src="../assets/imgs/nem-ran.png" alt="nem-ran">
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <span
+              class="font-secondary font-semibold text-[.625rem]/[.9375rem] uppercase tracking-[.063em] text-brown_50">
+              công thức</span>
+            <h4 class="text-lg font-bold text-main_content">Bí mật để vỏ Nem Rán luôn giòn tan suốt 4 tiếng</h4>
+          </div>
+        </article>
+
+        <article class="flex flex-col gap-4">
+          <div class="overflow-hidden rounded-2xl">
+            <img src="../assets/imgs/ca-kho-to.png" alt="ca-kho-to">
+          </div>
+
+          <div class="flex flex-col gap-1">
+            <span
+              class="font-secondary font-semibold text-[.625rem]/[.9375rem] uppercase tracking-[.063em] text-brown_50">
+              văn hóa</span>
+            <h4 class="text-lg font-bold text-main_content">Cơm nhà miền Tây: Đậm đà phong vị cá kho tộ</h4>
+          </div>
+        </article>
+      </div>
+
+      <article class="flex flex-col col-span-4 gap-2 pt-8">
+        <div class="pb-2 overflow-hidden rounded-2xl">
+          <img src="../assets/imgs/ca-phe-trung.png" alt="ca-phe-trung">
+        </div>
+        <span class="font-secondary font-bold text-[.625rem]/[.9375rem] tracking-[.0625rem] uppercase text-brown_50">món
+          ngon</span>
+        <h3 class="text-xl font-bold text-main_content">Cà phê trứng - Bản giao hưởng béo ngậy từ lòng Hà Nội</h3>
+        <p class="pt-1 text-sm font-normal font-secondary text-brown_80">Lớp kem trứng sánh mịn quyện cùng vị đắng của
+          cà phê Robusta tạo nên một hương vị khó quên.</p>
+        <a href=""
+          class="flex gap-1 pt-2 font-secondary font-bold text-xs tracking-[.075em] uppercase text-primary items-center w-fit">
+          khám phá <span class="text-base material-symbols-outlined">open_in_new</span>
+        </a>
+      </article>
+
+      <article class="flex flex-col col-span-4 gap-2 pt-8">
+        <div class="pb-2 overflow-hidden rounded-2xl">
+          <img src="../assets/imgs/gao-vung-cao.png" alt="gao-vung-cao">
+        </div>
+        <span class="font-secondary font-bold text-[.625rem]/[.9375rem] tracking-[.0625rem] uppercase text-brown_50">ký
+          sự</span>
+        <h3 class="text-xl font-bold text-main_content">Hương nếp mới trên những cánh đồng bậc thang</h3>
+        <p class="pt-1 text-sm font-normal font-secondary text-brown_80">Theo chân những người dân tộc vùng cao thu
+          hoạch lúa chín và làm cốm mới.</p>
+        <a href=""
+          class="flex gap-1 pt-2 font-secondary font-bold text-xs tracking-[.075em] uppercase text-primary items-center w-fit">
+          khám phá <span class="text-base material-symbols-outlined">open_in_new</span>
+        </a>
+      </article>
+
+      <article class="flex flex-col col-span-4 gap-2 pt-8">
+        <div class="pb-2 overflow-hidden rounded-2xl">
+          <img src="../assets/imgs/tra-viet.png" alt="tra-viet">
+        </div>
+        <span class="font-secondary font-bold text-[.625rem]/[.9375rem] tracking-[.0625rem] uppercase text-brown_50">văn
+          hóa</span>
+        <h3 class="text-xl font-bold text-main_content">Triết lý trong từng chén trà mạn sen Tây Hồ</h3>
+        <p class="pt-1 text-sm font-normal font-secondary text-brown_80">
+          Nghệ thuật ướp trà sen cầu kỳ - một tinh hoa
+          văn hóa tao nhã của người Tràng An.</p>
+        <a href=""
+          class="flex gap-1 pt-2 font-secondary font-bold text-xs tracking-[.075em] uppercase text-primary items-center w-fit">
+          khám phá <span class="text-base material-symbols-outlined">open_in_new</span>
+        </a>
+      </article>
+    </section>
+
+    <!-- newsletter -->
+    <section class="pt-20 pb-24 px-48 bg-[#c41230] w-[104%] -translate-x-[2%]">
+      <div class="flex flex-col items-center max-w-4xl gap-6 px-6">
+        <h2 class="text-4xl font-bold text-white">Đăng ký nhận câu chuyện ẩm thực</h2>
+        <p class="font-secondary font-normal italic text-lg text-[#ffd6d5]">Cập nhật những bài viết mới nhất về văn hóa
+          và công thức món Việt mỗi tuần.</p>
+        <form action="post" class="flex w-full max-w-lg gap-4 pt-4 h-[4.1875rem]">
+          <input type="email" name="email" id="email" placeholder="Email của bạn" class="email-input">
+          <button type="submit" class="btn-submit">gửi</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class=" border-t border-t-white_70 bg-[#f4f4ef]">
+    <div class="grid max-w-screen-xl grid-cols-4 gap-8 px-8 py-12 m-auto">
+      <div class="flex flex-col gap-4 font-secondary">
+        <a href="" class="text-xl font-semibold text-primary">Hương Vị Việt</a>
+        <p class="text-sm font-normal text-woodland">© 2024 Hương Vị Việt. Gìn giữ tinh hoa ẩm thực Việt.</p>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">khám phá</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Món Ngon Miền Bắc</a>
+          </li>
+          <li>
+            <a href="">Đặc Sản Miền Trung</a>
+          </li>
+          <li>
+            <a href="">Ẩm Thực Miền Nam</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">hỗ trợ</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Về Chúng Tôi</a>
+          </li>
+          <li>
+            <a href="">Chính Sách Bảo Mật</a>
+          </li>
+          <li>
+            <a href="">Điều Khoản Sử Dụng</a>
+          </li>
+          <li>
+            <a href="">Liên Hệ</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">theo dõi</h4>
+        <div class="flex gap-4">
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              social_leaderboard
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              play_circle
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              mail
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
