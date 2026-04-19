@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dish Detail</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CONFIG -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#9A0021',
+            secondary: '#feb700',
+            white_80: '#fafaf5',
+            white_80_op_20: '#fafaf5b2',
+            white_80_op_80: '#fafaf5e5',
+            white_70: '#e8e8e4',
+            main_content: '#1a1c19',
+            brown_80: '#5c403f',
+            brown_70: '#6b4b00',
+            brown_50: '#7c5800',
+            pink_50: '#e4bdbc',
+            woodland: '#474f1c',
+          },
+          fontFamily: {
+            primary: ["Be Vietnam Pro", 'sans-serif'],
+            secondary: ["Inter", 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- CUSTOM -->
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply flex flex-col items-center bg-white_80 font-primary;
+      }
+    }
+
+    @layer components {
+      .nav-item {
+        @apply leading-6 tracking-tight text-main_content opacity-80;
+      }
+
+      .nav-item:hover {
+        @apply text-primary opacity-100;
+      }
+
+      .btn-filter {
+        @apply px-5 py-2 text-sm font-semibold rounded-sm font-secondary text-brown_70;
+      }
+
+      .box-contain-check {
+        @apply flex items-center justify-center w-5 h-5 border-[1px] border-pink_50 rounded bg-white peer-checked:bg-primary peer-checked:border-primary;
+      }
+
+      .lb-dish-card {
+        @apply absolute top-[.875rem] left-4 bg-[#9a0021e5] backdrop-blur-md 
+              rounded-sm py-[.1563rem] px-3 uppercase font-secondary font-bold 
+              text-[.625rem]/[.9375rem] text-white tracking-[.0625rem];
+      }
+
+      .footer-link {
+        @apply flex flex-col gap-2 text-sm font-normal text-woodland opacity-70;
+      }
+
+      .btn-follow {
+        @apply flex items-center justify-center w-10 h-10 rounded-full bg-white_70;
+      }
+    }
+
+    @layer utilities {
+      .btn-hero-section {
+        @apply rounded-2xl py-3 px-8 font-secondary font-semibold text-base capitalize;
+      }
+
+      .wrapper-pho-img-component {
+        @apply rounded-lg overflow-hidden bg-[#eeeee9] [&>img]:object-cover [&>img]:w-full [&>img]:h-full;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+  <header class="fixed top-0 z-50 bg-[#fafaf5]">
+    <div class="flex items-center justify-between max-w-screen-xl px-6 py-4 m-auto">
+      <a href="/index.html" class="text-2xl font-bold tracking-tight text-primary">Hương Vị Việt</a>
+
+      <nav>
+        <ul class="flex gap-8 ">
+          <li>
+            <a href="" class="nav-item">Khám Phá</a>
+          </li>
+          <li>
+            <a href="/pages/regional-specialties.html" class="nav-item">Vùng Miền</a>
+          </li>
+          <li>
+            <a href="/pages/marketplace.html" class="nav-item">Chợ Việt</a>
+          </li>
+          <li>
+            <a href="/pages/blog.html" class="nav-item">Văn Hóa</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="flex gap-6">
+        <a href="/cart" class="flex items-center">
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </a>
+        <a href="/user" class="flex items-center">
+          <span class="material-symbols-outlined">
+            person
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col gap-24 px-6 pt-24 pb-32 bg-[#fafaf5]">
+    <!-- Section - Hero Gallery & Primary Info Bento -->
+    <section class="grid grid-cols-12 grid-rows-1 gap-8">
+      <div class="grid grid-cols-6 col-span-7 grid-rows-1 gap-4">
+        <div class="rounded-xl bg-[#eeeee9] overflow-hidden relative col-span-5">
+          <img src="../assets/imgs/dish-detail/dau-bep.png" alt="dau-bep" class="object-cover w-full h-full">
+
+          <span class="absolute top-3 left-4 px-3 py-1 rounded-sm bg-secondary
+                font-secondary font-semibold text-xs tracking-[.0375rem] uppercase text-brown_70">
+            chef's choice
+          </span>
+        </div>
+
+        <div class="col-span-1 flex flex-col gap-4 
+        [&>div]:wrapper-pho-img-component">
+          <div>
+            <img src="../assets/imgs/dish-detail/thit-bo.png" alt="thit-bo">
+          </div>
+          <div>
+            <img src="../assets/imgs/dish-detail/qua-chanh.png" alt="qua-chanh">
+          </div>
+          <div>
+            <img src="../assets/imgs/dish-detail/nuoc-dung-pho.png" alt="nuoc-dung-pho">
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col col-span-5 gap-6">
+        <div class="flex flex-col gap-2">
+          <h1 class="font-extrabold text-5xl/[3rem] text-main_content capitalize">phở bò nam định</h1>
+          <div class="flex gap-2">
+            <div class="text-xs text-brown_50">
+              <span class="material-symbols-outlined">
+                star_rate
+              </span>
+              <span class="material-symbols-outlined">
+                star_rate
+              </span>
+              <span class="material-symbols-outlined">
+                star_rate
+              </span>
+              <span class="material-symbols-outlined">
+                star_rate
+              </span>
+              <span class="material-symbols-outlined">
+                star_rate
+              </span>
+            </div>
+
+            <span class="text-sm font-medium font-secondary text-brown_80">
+              (128 đánh giá)
+            </span>
+          </div>
+        </div>
+
+        <p class="font-secondary text-base/[1.625rem] text-brown_80">
+          Phở Nam Định có nguồn gốc từ làng Giao Cù, mang hương vị đặc
+          trưng của nước dùng từ xương bò ninh nhừ cùng gừng nướng và
+          thảo mộc. Sợi phở mỏng, dai quyện cùng thịt bò thái lát mỏng tạo
+          nên một tác phẩm nghệ thuật ẩm thực di sản.
+        </p>
+
+        <div class="flex flex-col gap-4 rounded-xl p-6 bg-[#f4f4ef]">
+          <h3 class="text-lg font-bold text-main_content">Nguyên liệu chính</h3>
+          <div class="grid grid-cols-2 grid-rows-2 gap-4 
+          [&>div]:flex [&>div]:items-center [&>div]:gap-3">
+            <div>
+              <span class="material-symbols-outlined text-woodland">
+                bakery_dining
+              </span>
+              <span class="text-sm font-secondary text-main_content">Bánh phở tươi</span>
+            </div>
+
+            <div>
+              <span class="material-symbols-outlined text-woodland">
+                set_meal
+              </span>
+              <span class="text-sm font-secondary text-main_content">Thịt bò thăn</span>
+            </div>
+
+            <div>
+              <span class="material-symbols-outlined text-woodland">
+                cannabis
+              </span>
+              <span class="text-sm font-secondary text-main_content">Thảo mộc tự nhiên</span>
+            </div>
+
+            <div>
+              <span class="material-symbols-outlined text-woodland">
+                soup_kitchen
+              </span>
+              <span class="text-sm font-secondary text-main_content">Nước dùng gia truyền</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between py-4">
+          <div class="flex flex-col gap-1">
+            <span class="text-sm font-secondary text-brown_80">Giá mỗi bát</span>
+            <span class="text-3xl font-bold text-primary">85.000đ</span>
+          </div>
+
+          <button
+            class="flex items-center gap-2 px-8 py-4 text-base font-bold text-white rounded-xl bg-primary font-secondary">
+            <span class="material-symbols-outlined">
+              shopping_basket
+            </span>
+            Thêm vào giỏ hàng
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="flex flex-col gap-8">
+      <div class="flex justify-between pb-4 border-b-[.0625rem] border-solid
+      border-b-[#e4bdbc4d]">
+        <h2 class="text-3xl font-bold text-main_content">Cảm nhận thực khách</h2>
+
+        <button class="flex gap-1 pb-1 text-base font-semibold border-b-2 border-solid border-b-primary text-primary">
+          Xem tất cả đánh giá
+          <span class="material-symbols-outlined">
+            arrow_forward
+          </span>
+        </button>
+      </div>
+
+      <!-- container for reviews -->
+      <div class="grid grid-cols-3 grid-rows-1 gap-6">
+        <!-- review card -->
+        <div class="flex flex-col gap-[.9219rem] p-6 rounded-xl bg-[#f4f4ef]">
+          <div class="flex justify-between">
+            <div class="flex gap-3">
+              <span class="rounded-full w-10 h-10 flex justify-center items-center 
+              bg-[#ffdea8] font-secondary font-semibold text-base text-[#271900]">
+                TL
+              </span>
+              <div class="flex flex-col font-secondary ">
+                <span class="text-sm font-semibold text-main_content">Trần Lê</span>
+                <span class="text-xs text-brown_80">2 ngày trước</span>
+              </div>
+            </div>
+
+            <div class="[&>span]:text-[.625rem] [&>span]:text-[#ffba20]">
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+            </div>
+          </div>
+
+          <p class="font-secondary italic text-sm/[1.4219rem] text-brown_80">
+            "Nước dùng rất trong và ngọt thanh vị xương, đúng
+            chuẩn vị Nam Định mà tôi từng ăn. Thịt bò tươi và
+            mềm."
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-[.9219rem] p-6 rounded-xl bg-[#f4f4ef]">
+          <div class="flex justify-between">
+            <div class="flex gap-3">
+              <span class="rounded-full w-10 h-10 flex justify-center items-center 
+              bg-[#ffdea8] font-secondary font-semibold text-base text-[#271900]">
+                NH
+              </span>
+              <div class="flex flex-col font-secondary ">
+                <span class="text-sm font-semibold text-main_content">Nguyễn Hạnh</span>
+                <span class="text-xs text-brown_80">1 tuần trước</span>
+              </div>
+            </div>
+
+            <div class="[&>span]:text-[.625rem] [&>span]:text-[#ffba20]">
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+            </div>
+          </div>
+
+          <p class="font-secondary italic text-sm/[1.4219rem] text-brown_80">
+            "Quán phục vụ rất nhanh, bát phở nóng hổi, rất
+            nhiều hành và thảo mộc thơm phức. Sẽ quay lại!"
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-[.9219rem] p-6 rounded-xl bg-[#f4f4ef]">
+          <div class="flex justify-between">
+            <div class="flex gap-3">
+              <span class="rounded-full w-10 h-10 flex justify-center items-center 
+              bg-[#ffdea8] font-secondary font-semibold text-base text-[#271900]">
+                MH
+              </span>
+              <div class="flex flex-col font-secondary ">
+                <span class="text-sm font-semibold text-main_content">Minh Huy</span>
+                <span class="text-xs text-brown_80">vừa xong</span>
+              </div>
+            </div>
+
+            <div class="[&>span]:text-[.625rem] [&>span]:text-[#ffba20]">
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+              <span class="material-symbols-outlined">
+                star
+              </span>
+            </div>
+          </div>
+
+          <p class="font-secondary italic text-sm/[1.4219rem] text-brown_80">
+            "Một trong những bát phở ngon nhất mình từng ăn ở
+            Sài Gòn. Đậm đà bản sắc vùng miền."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section - Related Content -->
+    <section class="flex flex-col gap-8">
+      <h2 class="text-3xl font-bold text-main_content">Món ăn liên quan</h2>
+
+      <!-- dish cards -->
+      <div class="grid grid-cols-4 grid-rows-1 gap-6">
+        <!-- 1 dish card -->
+        <div class="flex flex-col gap-1">
+          <div class="overflow-hidden rounded-lg">
+            <img src="../assets/imgs/dish-detail/nem-ran-ha-noi.png" alt="nem-ran-ha-noi"
+              class="object-cover w-full h-full">
+          </div>
+          <h4 class="pt-3 text-lg font-semibold capitalize font-secondary text-main_content">nem rán hà nội</h4>
+          <span class="text-base font-semibold font-secondary text-primary">45.000đ</span>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="overflow-hidden rounded-lg">
+            <img src="../assets/imgs/dish-detail/bun-bo-hue.png" alt="bun-bo-hue" class="object-cover w-full h-full">
+          </div>
+          <h4 class="pt-3 text-lg font-semibold capitalize font-secondary text-main_content">bún bò huế</h4>
+          <span class="text-base font-semibold font-secondary text-primary">95.000đ</span>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="overflow-hidden rounded-lg">
+            <img src="../assets/imgs/dish-detail/com-tam-suon-bi.png" alt="com-tam-suon-bi"
+              class="object-cover w-full h-full">
+          </div>
+          <h4 class="pt-3 text-lg font-semibold capitalize font-secondary text-main_content">cơm tấm sườn bì</h4>
+          <span class="text-base font-semibold font-secondary text-primary">65.000đ</span>
+        </div>
+
+        <div class="flex flex-col gap-1">
+          <div class="overflow-hidden rounded-lg">
+            <img src="../assets/imgs/dish-detail/ca-phe-sua-da.png" alt="ca-phe-sua-da"
+              class="object-cover w-full h-full">
+          </div>
+          <h4 class="pt-3 text-lg font-semibold capitalize font-secondary text-main_content">cà phê sữa đá</h4>
+          <span class="text-base font-semibold font-secondary text-primary">29.000đ</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <footer class=" border-t border-t-white_70 bg-[#f4f4ef]">
+    <div class="grid max-w-screen-xl grid-cols-4 gap-8 px-8 py-12 m-auto">
+      <div class="flex flex-col gap-4 font-secondary">
+        <a href="" class="text-xl font-semibold text-primary">Hương Vị Việt</a>
+        <p class="text-sm font-normal text-woodland">© 2024 Hương Vị Việt. Gìn giữ tinh hoa ẩm thực Việt.</p>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">khám phá</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Món Ngon Miền Bắc</a>
+          </li>
+          <li>
+            <a href="">Đặc Sản Miền Trung</a>
+          </li>
+          <li>
+            <a href="">Ẩm Thực Miền Nam</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">hỗ trợ</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Về Chúng Tôi</a>
+          </li>
+          <li>
+            <a href="">Chính Sách Bảo Mật</a>
+          </li>
+          <li>
+            <a href="">Điều Khoản Sử Dụng</a>
+          </li>
+          <li>
+            <a href="">Liên Hệ</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">theo dõi</h4>
+        <div class="flex gap-4">
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              social_leaderboard
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              play_circle
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              mail
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
