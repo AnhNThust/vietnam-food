@@ -19,24 +19,42 @@ body>* {
   width: 100%;
 }
 
-.nav-item {
-  position: relative;
+header {
+  .nav-item {
+    position: relative;
 
-  &::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: -0.5rem;
-    width: 0;
-    border: 2px solid transparent;
-    border-radius: .25rem;
-    transition: all ease-in-out 0.3s;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -0.5rem;
+      width: 0;
+      border: 2px solid transparent;
+      border-radius: .25rem;
+      transition: all ease-in-out 0.3s;
+    }
+
+    &:hover::after {
+      width: 100%;
+      border-color: var(--primary-color);
+    }
   }
 
-  &:hover::after {
-    width: 100%;
-    border-color: var(--primary-color);
+  .nav-item-selected {
+    color: var(--primary-color);
+    opacity: 1;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -0.5rem;
+      width: 100%;
+      border: 2px solid var(--primary-color);
+      border-radius: .25rem;
+    }
   }
 }
 
@@ -44,6 +62,12 @@ body>* {
 main {
   background-color: #fff;
   max-width: 80rem;
+
+  button.page-selected {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+    color: #fff;
+  }
 }
 
 /* regional specialties page */

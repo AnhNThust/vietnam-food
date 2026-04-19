@@ -67,14 +67,9 @@
         @apply rounded-sm py-[.1563rem] px-3 bg-primary absolute top-3 left-4 uppercase font-secondary font-bold text-[.625rem]/[.9375rem] text-white tracking-[.0625rem] shadow-[0px_4px_6px_-4px_#0000001A,0px_10px_15px_-3px_#0000001A]
       }
 
-      .pagination-container {
-        @apply flex justify-center items-center gap-4 pt-12 
-          [&>button]:flex [&>button]:items-center 
-          [&>button]:justify-center [&>button]:w-10 [&>button]:h-10 
-          [&>button]:rounded-2xl [&>button]:border-[1px]
-          [&>button]:border-pink_50 [&>button]:font-secondary 
-          [&>button]:font-medium [&>button]:text-base
-          [&>button]:text-main_content hover:[&>button]:border-primary hover:[&>button]:bg-primary hover:[&>button]:text-white
+      .btn-pagination {
+        @apply  flex items-center justify-center w-10 h-10 rounded-2xl border-[1px]
+          border-pink_50 font-secondary font-medium text-base text-main_content;
       }
 
       .footer-link {
@@ -102,16 +97,16 @@
       <nav>
         <ul class="flex gap-8 ">
           <li>
-            <a href="" class="nav-item">Khám Phá</a>
+            <a href="../index.html" class="nav-item">Khám Phá</a>
           </li>
           <li>
-            <a href="/pages/regional-specialties.html" class="nav-item">Vùng Miền</a>
+            <a href="../pages/regional-specialties.html" class="nav-item">Vùng Miền</a>
           </li>
           <li>
-            <a href="/pages/marketplace.html" class="nav-item">Chợ Việt</a>
+            <a href="../pages/marketplace.html" class="nav-item nav-item-selected">Chợ Việt</a>
           </li>
           <li>
-            <a href="/pages/blog.html" class="nav-item">Văn Hóa</a>
+            <a href="../pages/blog.html" class="nav-item">Văn Hóa</a>
           </li>
         </ul>
       </nav>
@@ -440,11 +435,12 @@
         </div>
 
         <!-- pagination -->
-        <div class="pagination-container">
+        <div class="flex justify-center items-center gap-4 pt-12 [&>button]:btn-pagination 
+        hover:[&>button]:border-primary hover:[&>button]:bg-primary hover:[&>button]:text-white">
           <button>
             <span class="material-symbols-outlined">keyboard_arrow_left</span>
           </button>
-          <button>1</button>
+          <button class="page-selected">1</button>
           <button>2</button>
           <button>3</button>
           <span>...</span>
