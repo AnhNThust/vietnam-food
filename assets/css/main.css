@@ -6,9 +6,7 @@
   --medium-fw: 500;
 
   --main-content-color: #1A1C19;
-  /* brown-1: #7C5800;
-  brown-1: #5c403f;
-  brown-1: #6B4B00; */
+  --rate-color: #7C5800;
 }
 
 html {
@@ -67,6 +65,27 @@ main {
     border-color: var(--primary-color);
     background-color: var(--primary-color);
     color: #fff;
+  }
+
+  /* marketplace page */
+  .star-icon {
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+      font-variation-settings: 'FILL' 1;
+      color: var(--rate-color);
+    }
+  }
+
+  .favorite-icon {
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+
+    &:hover {
+      font-variation-settings: 'FILL' 1;
+      color: var(--primary-color);
+    }
   }
 }
 

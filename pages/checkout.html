@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    /* .material-symbols-outlined {
+      font-variation-settings:
+        'FILL' 1,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+    } */
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CONFIG -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#9A0021',
+            secondary: '#feb700',
+            white_80: '#fafaf5',
+            white_80_op_20: '#fafaf5b2',
+            white_80_op_80: '#fafaf5e5',
+            white_70: '#e8e8e4',
+            main_content: '#1a1c19',
+            brown_80: '#5c403f',
+            brown_70: '#6b4b00',
+            brown_50: '#7c5800',
+            pink_50: '#e4bdbc',
+            woodland: '#474f1c',
+          },
+          fontFamily: {
+            primary: ["Be Vietnam Pro", 'sans-serif'],
+            secondary: ["Inter", 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- CUSTOM -->
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply flex flex-col items-center bg-white_80 font-primary;
+      }
+    }
+
+    @layer components {
+      .nav-item {
+        @apply leading-6 tracking-tight text-main_content opacity-80;
+      }
+
+      .nav-item:hover {
+        @apply text-primary opacity-100;
+      }
+
+      .btn-filter {
+        @apply px-5 py-2 text-sm font-semibold rounded-sm font-secondary text-brown_70;
+      }
+
+      .box-contain-check {
+        @apply flex items-center justify-center w-5 h-5 border-[1px] border-pink_50 rounded bg-white peer-checked:bg-primary peer-checked:border-primary;
+      }
+
+      .lb-dish-card {
+        @apply absolute top-[.875rem] left-4 bg-[#9a0021e5] backdrop-blur-md 
+              rounded-sm py-[.1563rem] px-3 uppercase font-secondary font-bold 
+              text-[.625rem]/[.9375rem] text-white tracking-[.0625rem];
+      }
+
+      .footer-link {
+        @apply flex flex-col gap-2 text-sm font-normal text-woodland opacity-70;
+      }
+
+      .btn-follow {
+        @apply flex items-center justify-center w-10 h-10 rounded-full bg-white_70;
+      }
+    }
+
+    @layer utilities {
+      .btn-hero-section {
+        @apply rounded-2xl py-3 px-8 font-secondary font-semibold text-base capitalize;
+      }
+
+      .wrapper-pho-img-component {
+        @apply rounded-lg overflow-hidden bg-[#eeeee9] [&>img]:object-cover [&>img]:w-full [&>img]:h-full;
+      }
+    }
+  </style>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+  <header class="fixed top-0 z-50 bg-[#fafaf5]">
+    <div class="flex items-center justify-between max-w-screen-xl px-6 py-4 m-auto">
+      <a href="/index.html" class="text-2xl font-bold tracking-tight text-primary">Hương Vị Việt</a>
+
+      <nav>
+        <ul class="flex gap-8 ">
+          <li>
+            <a href="../index.html" class="nav-item">Khám Phá</a>
+          </li>
+          <li>
+            <a href="../pages/regional-specialties.html" class="nav-item nav-item-selected">
+              Vùng Miền
+            </a>
+          </li>
+          <li>
+            <a href="../pages/marketplace.html" class="nav-item">Chợ Việt</a>
+          </li>
+          <li>
+            <a href="../pages/blog.html" class="nav-item">Văn Hóa</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="flex gap-6">
+        <a href="/cart" class="flex items-center">
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </a>
+        <a href="/user" class="flex items-center">
+          <span class="material-symbols-outlined">
+            person
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col gap-24 px-6 pt-24 pb-32 bg-[#fafaf5]">
+    <span class="material-symbols-outlined">
+      kid_star
+    </span>
+
+    <span class="material-symbols-outlined">
+      kid_star
+    </span>
+
+    <span class="material-symbols-outlined">
+      star_rate
+    </span>
+  </main>
+
+
+  <footer class=" border-t border-t-white_70 bg-[#f4f4ef]">
+    <div class="grid max-w-screen-xl grid-cols-4 gap-8 px-8 py-12 m-auto">
+      <div class="flex flex-col gap-4 font-secondary">
+        <a href="" class="text-xl font-semibold text-primary">Hương Vị Việt</a>
+        <p class="text-sm font-normal text-woodland">© 2024 Hương Vị Việt. Gìn giữ tinh hoa ẩm thực Việt.</p>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">khám phá</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Món Ngon Miền Bắc</a>
+          </li>
+          <li>
+            <a href="">Đặc Sản Miền Trung</a>
+          </li>
+          <li>
+            <a href="">Ẩm Thực Miền Nam</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">hỗ trợ</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Về Chúng Tôi</a>
+          </li>
+          <li>
+            <a href="">Chính Sách Bảo Mật</a>
+          </li>
+          <li>
+            <a href="">Điều Khoản Sử Dụng</a>
+          </li>
+          <li>
+            <a href="">Liên Hệ</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">theo dõi</h4>
+        <div class="flex gap-4">
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              social_leaderboard
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              play_circle
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              mail
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
