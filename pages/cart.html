@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- CONFIG -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#9A0021',
+            secondary: '#feb700',
+            white_80: '#fafaf5',
+            white_80_op_20: '#fafaf5b2',
+            white_80_op_80: '#fafaf5e5',
+            white_70: '#e8e8e4',
+            main_content: '#1a1c19',
+            brown_80: '#5c403f',
+            brown_70: '#6b4b00',
+            brown_50: '#7c5800',
+            pink_50: '#e4bdbc',
+            woodland: '#474f1c',
+          },
+          fontFamily: {
+            primary: ["Be Vietnam Pro", 'sans-serif'],
+            secondary: ["Inter", 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <!-- CUSTOM -->
+  <style type="text/tailwindcss">
+    @layer base {
+      body {
+        @apply flex flex-col items-center bg-white_80 font-primary;
+      }
+    }
+
+    @layer components {
+      .nav-item {
+        @apply leading-6 tracking-tight text-main_content opacity-80;
+      }
+
+      .nav-item:hover {
+        @apply text-primary opacity-100;
+      }
+
+      .footer-link {
+        @apply flex flex-col gap-2 text-sm font-normal text-woodland opacity-70;
+      }
+
+      .btn-follow {
+        @apply flex items-center justify-center w-10 h-10 rounded-full bg-white_70;
+      }
+    }
+
+    @layer utilities {
+      
+    }
+  </style>
+
+  <link rel="stylesheet" href="../assets/css/main.css">
+</head>
+
+<body>
+  <header class="fixed top-0 z-50 bg-[#fafaf5]">
+    <div class="flex items-center justify-between max-w-screen-xl px-6 py-4 m-auto">
+      <a href="/index.html" class="text-2xl font-bold tracking-tight text-primary">Hương Vị Việt</a>
+
+      <nav>
+        <ul class="flex gap-8 ">
+          <li>
+            <a href="../index.html" class="nav-item">Khám Phá</a>
+          </li>
+          <li>
+            <a href="../pages/regional-specialties.html" class="nav-item nav-item-selected">
+              Vùng Miền
+            </a>
+          </li>
+          <li>
+            <a href="../pages/marketplace.html" class="nav-item">Chợ Việt</a>
+          </li>
+          <li>
+            <a href="../pages/blog.html" class="nav-item">Văn Hóa</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="flex gap-6">
+        <a href="/cart" class="flex items-center">
+          <span class="material-symbols-outlined">
+            shopping_cart
+          </span>
+        </a>
+        <a href="/user" class="flex items-center">
+          <span class="material-symbols-outlined">
+            person
+          </span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex flex-col gap-12 px-6 pt-24 pb-20 bg-[#fafaf5]">
+    <section class="flex flex-col gap-2">
+      <h1 class="font-extrabold text-5xl/[3rem] -tracking-[.075rem] text-main_content capitalize">
+        giỏ hàng của bạn
+      </h1>
+      <p class="text-base font-secondary text-brown_80">
+        Sẵn sàng để thưởng thức tinh hoa ẩm thực Việt Nam.
+      </p>
+    </section>
+
+    <div class="grid grid-cols-12 grid-rows-1 gap-12">
+      <!-- cart item list -->
+      <div class="flex flex-col col-span-8 gap-8">
+        <!-- item -->
+        <div class="flex gap-6 p-6 rounded-2xl bg-white border-b-[.0625rem] border-solid
+        border-b-[#e4bdbc1a]">
+          <div class="w-32 h-32 rounded-2xl bg-[#eeeee9] overflow-hidden">
+            <img src="../assets/imgs/cart/pho-bo-tai-lan.png" alt="pho-bo-tai-lan">
+          </div>
+
+          <div class="flex flex-col justify-between flex-grow">
+            <div class="flex justify-between">
+              <div class="flex flex-col gap-1">
+                <h3 class="text-xl font-bold capitalize text-main_content">phở bò tái lăn</h3>
+                <span class="text-sm font-medium font-secondary text-woodland">
+                  Đặc sản Hà Nội
+                </span>
+              </div>
+
+              <span class="text-lg font-bold text-primary">125.000đ</span>
+            </div>
+
+            <div class="flex justify-between pt-6">
+              <div class="flex items-center justify-between px-2 py-1 rounded-xl bg-white_70 text-main_content">
+                <button class="flex items-center justify-center w-8 h-8">
+                  <span class="text-base material-symbols-outlined">
+                    remove
+                  </span>
+                </button>
+                <span class="px-4 text-base font-semibold font-secondary">1</span>
+                <button class="flex items-center justify-center w-8 h-8">
+                  <span class="text-base material-symbols-outlined">
+                    add
+                  </span>
+                </button>
+              </div>
+
+              <div class="flex items-center gap-4 text-brown_80">
+                <button class="flex items-center gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <span class="text-sm font-medium font-secondary text-brown_80">Lưu lại</span>
+                </button>
+
+                <button class="flex items-center gap-1">
+                  <span class="material-symbols-outlined">
+                    delete
+                  </span>
+                  <span class="text-sm font-medium font-secondary text-brown_80">Xóa</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-6 p-6 rounded-2xl bg-white border-b-[.0625rem] border-solid
+        border-b-[#e4bdbc1a]">
+          <div class="w-32 h-32 rounded-2xl bg-[#eeeee9] overflow-hidden">
+            <img src="../assets/imgs/cart/goi-cuon-tom-thit.png" alt="goi-cuon-tom-thit">
+          </div>
+
+          <div class="flex flex-col justify-between flex-grow">
+            <div class="flex justify-between">
+              <div class="flex flex-col gap-1">
+                <h3 class="text-xl font-bold capitalize text-main_content">gỏi cuốn tôm thịt</h3>
+                <span class="text-sm font-medium font-secondary text-woodland">
+                  Sơ chế tươi trong ngày
+                </span>
+              </div>
+
+              <span class="text-lg font-bold text-primary">85.000đ</span>
+            </div>
+
+            <div class="flex justify-between pt-6">
+              <div class="flex items-center justify-between px-2 py-1 rounded-xl bg-white_70 text-main_content">
+                <button class="flex items-center justify-center w-8 h-8">
+                  <span class="text-base material-symbols-outlined">
+                    remove
+                  </span>
+                </button>
+                <span class="px-4 text-base font-semibold font-secondary">1</span>
+                <button class="flex items-center justify-center w-8 h-8">
+                  <span class="text-base material-symbols-outlined">
+                    add
+                  </span>
+                </button>
+              </div>
+
+              <div class="flex items-center gap-4 text-brown_80">
+                <button class="flex items-center gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <span class="text-sm font-medium font-secondary text-brown_80">Lưu lại</span>
+                </button>
+
+                <button class="flex items-center gap-1">
+                  <span class="material-symbols-outlined">
+                    delete
+                  </span>
+                  <span class="text-sm font-medium font-secondary text-brown_80">Xóa</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex gap-6 p-6 rounded-2xl bg-white border-b-[.0625rem] border-solid
+        border-b-[#e4bdbc1a]">
+          <div class="w-32 h-32 rounded-2xl bg-[#eeeee9] overflow-hidden">
+            <img src="../assets/imgs/cart/ca-phe-sua-da.png" alt="ca-phe-sua-da">
+          </div>
+
+          <div class="flex flex-col justify-between flex-grow">
+            <div class="flex justify-between">
+              <div class="flex flex-col gap-1">
+                <h3 class="text-xl font-bold capitalize text-main_content">cà phê sữa đá</h3>
+                <span class="text-sm font-medium font-secondary text-woodland">
+                  Hạt robusta Đắk Lắk
+                </span>
+              </div>
+
+              <span class="text-lg font-bold text-primary">45.000đ</span>
+            </div>
+
+            <div class="flex justify-between pt-6">
+              <div class="flex items-center justify-between px-2 py-1 rounded-xl bg-white_70 text-main_content">
+                <button class="flex items-center justify-center w-8 h-8">
+                  <span class="text-base material-symbols-outlined">
+                    remove
+                  </span>
+                </button>
+                <span class="px-4 text-base font-semibold font-secondary">1</span>
+                <button class="flex items-center justify-center w-8 h-8">
+                  <span class="text-base material-symbols-outlined">
+                    add
+                  </span>
+                </button>
+              </div>
+
+              <div class="flex items-center gap-4 text-brown_80">
+                <button class="flex items-center gap-1">
+                  <span class="material-symbols-outlined">
+                    favorite
+                  </span>
+                  <span class="text-sm font-medium font-secondary text-brown_80">Lưu lại</span>
+                </button>
+
+                <button class="flex items-center gap-1">
+                  <span class="material-symbols-outlined">
+                    delete
+                  </span>
+                  <span class="text-sm font-medium font-secondary text-brown_80">Xóa</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aside - Summary Sidebar -->
+      <section class="col-span-4 flex flex-col gap-8 rounded-2xl p-8 bg-[#f4f4ef] 
+                      shadow-[0px_1px_2px_0px_#0000000d]">
+        <h2 class="text-2xl font-bold text-main_content">Tóm tắt đơn hàng</h2>
+        <div class="flex flex-col gap-6 pb-8 border-b-[.0625rem] border-solid 
+                  border-b-[#e4bdbc33] font-secondary [&>div]:flex [&>div]:justify-between">
+          <div>
+            <span class="text-base text-brown_80">Tạm tính</span>
+            <span class="text-base font-semibold text-main_content">340.000đ</span>
+          </div>
+
+          <div>
+            <span class="text-base text-brown_80">Phí vận chuyển</span>
+            <span class="text-base font-semibold text-main_content">25.000đ</span>
+          </div>
+
+          <div>
+            <span class="text-base text-brown_80">Giảm giá</span>
+            <span class="text-base font-semibold text-brown_50">-15.000đ</span>
+          </div>
+        </div>
+
+        <div class="flex justify-between">
+          <span class="text-xl font-bold text-main_content">Tổng cộng</span>
+          <span class="text-2xl font-extrabold text-primary">350.000đ</span>
+        </div>
+
+        <div class="flex flex-col gap-4 pt-2">
+          <button class="relative flex justify-center gap-2 py-4 rounded-xl bg-primary">
+            <span class="absolute top-0 rounded-xl w-full h-full bg-[#ffffff01]
+                      shadow-[0px_4px_6px_-4px_#0000001a,0px_10px_15px_-3px_#0000001a]"></span>
+            <span class="text-base font-semibold text-white font-secondary">Tiến hành thanh toán</span>
+            <span class="text-white material-symbols-outlined">
+              arrow_forward
+            </span>
+          </button>
+
+          <button
+            class="flex justify-center py-4 text-base font-semibold rounded-xl bg-white_70 font-secondary text-primary">
+            Tiếp tục mua sắm
+          </button>
+        </div>
+
+        <div class="flex rounded-2xl p-4 gap-3 bg-[#eeeee9]">
+          <span class="material-symbols-outlined text-brown_50 h-fit">
+            info
+          </span>
+          <p class="font-secondary text-xs/[1.2188rem] text-brown_80">
+            Miễn phí vận chuyển cho đơn hàng trên
+            500.000đ. Hãy đặt thêm món để nhận ưu
+            đãi!
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+  <footer class=" border-t border-t-white_70 bg-[#f4f4ef]">
+    <div class="grid max-w-screen-xl grid-cols-4 gap-8 px-8 py-12 m-auto">
+      <div class="flex flex-col gap-4 font-secondary">
+        <a href="" class="text-xl font-semibold text-primary">Hương Vị Việt</a>
+        <p class="text-sm font-normal text-woodland">© 2024 Hương Vị Việt. Gìn giữ tinh hoa ẩm thực Việt.</p>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">khám phá</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Món Ngon Miền Bắc</a>
+          </li>
+          <li>
+            <a href="">Đặc Sản Miền Trung</a>
+          </li>
+          <li>
+            <a href="">Ẩm Thực Miền Nam</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">hỗ trợ</h4>
+        <ul class="footer-link">
+          <li>
+            <a href="">Về Chúng Tôi</a>
+          </li>
+          <li>
+            <a href="">Chính Sách Bảo Mật</a>
+          </li>
+          <li>
+            <a href="">Điều Khoản Sử Dụng</a>
+          </li>
+          <li>
+            <a href="">Liên Hệ</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="flex flex-col gap-4 font-secondary">
+        <h4 class="text-sm/[1.4219rem] font-semibold text-primary uppercase">theo dõi</h4>
+        <div class="flex gap-4">
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              social_leaderboard
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              play_circle
+            </span>
+          </a>
+          <a href="" class="btn-follow">
+            <span class="material-symbols-outlined text-main_content">
+              mail
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>
